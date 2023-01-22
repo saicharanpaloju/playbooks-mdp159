@@ -1,0 +1,13 @@
+# ansible n1 -m file -a "path=/home/ec2-user/n1_dir state=directory"
+# Playbook with single play and single task
+
+---
+- name: Update Node 1
+  hosts: n1
+
+  tasks:
+  - name: create n1 directory
+    file:
+      path: /home/ec2-user/n1_dir
+      state: directory
+...        

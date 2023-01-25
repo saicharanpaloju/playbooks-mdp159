@@ -1,0 +1,24 @@
+
+---
+- name: Deploy Ecomm App
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install GIT
+      yum:
+        name: git
+        state: present
+
+    - name: Deploy App
+      git:
+        repo: 
+          https://github.com/mubeen507/ecomm.git
+        dest: 
+          /var/www/html
+        clone: yes
+        update: yes
+
+...     
+
+

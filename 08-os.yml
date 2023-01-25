@@ -1,0 +1,27 @@
+# copy the os.html from master to appropriate nodes with their names
+# scp 
+---
+- name: Setup Apache Web Server
+  hosts: all
+  become: yes
+  tasks:
+  - name: copy on amazon
+    copy:
+      src: os.html
+      dest: /var/www/html/amazon.html
+    when: ansible_distribution  == "Amazon"
+
+  - name: copy on amazon
+    copy:
+      src: os.html
+      dest: /var/www/html/amazon.html
+    when: ansible_distribution  == "Amazon"
+   
+
+  - name: copy on ubuntu
+    copy:
+      src: os.html
+      dest: /var/www/html/ubuntu.html
+    when: ansible_distribution  == "Ubuntu"
+
+...        

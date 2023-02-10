@@ -1,0 +1,12 @@
+# copy the os.html from master to appropriate nodes with their names
+# scp 
+---
+- name: Setup Apache Web Server
+  hosts: all
+  tasks:
+  - name: copy on amazon
+    template:
+      src: db_props.j2
+      dest: /home/ec2-user/db.prop
+    when: ansible_distribution  == "Amazon"
+...        

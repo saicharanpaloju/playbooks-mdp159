@@ -1,0 +1,7 @@
+# MySQL DB properties
+address= {{ ansible_os_family }}
+IP_address= {{ ansible_default_ipv4.address }} 
+jdbc.driver=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://{{ ansible_default_ipv4.address }}:3306/MyDbName
+jdbc.username=sai
+jdbc.password=admin

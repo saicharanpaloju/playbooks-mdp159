@@ -3,6 +3,7 @@
 - name: Setup Apache Web Server
   hosts: httpd
   become: yes
+  
   tasks:
   - name: install httpd
     yum:

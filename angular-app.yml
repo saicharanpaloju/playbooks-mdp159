@@ -1,0 +1,10 @@
+
+---
+- name: Deploy ANGULAR APP
+  hosts: all
+  roles: 
+    - apache
+    - angular-deploy
+...     
+
+

@@ -1,0 +1,7 @@
+---
+  vars:
+    user_name: Sai
+    custom_http_port: 80
+
+...
+   

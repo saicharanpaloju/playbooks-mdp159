@@ -1,0 +1,62 @@
+---
+  - name: copy on amazon
+    copy:
+      src: os.html
+      dest: /var/www/html/amazon.html
+    when: ansible_distribution  == "Amazon"
+
+  - name: copy on amazon
+    copy:
+      src: os.html
+      dest: /var/www/html/amazon.html
+    when: ansible_distribution  == "Amazon"
+   
+
+  - name: copy on ubuntu
+    copy:
+      src: os.html
+      dest: /var/www/html/ubuntu.html
+    when: ansible_distribution  == "Ubuntu"
+
+  - name: copy on amazon
+    template:
+      src: dynamic.j2
+      dest: /var/www/html/amazon.html
+    when: ansible_distribution  == "Amazon"
+
+  - name: copy on amazon
+    template:
+      src: dynamic.j2
+      dest: /var/www/html/amazon.html
+    when: ansible_distribution  == "Amazon"
+    
+  - name: copy on ubuntu
+    template:
+      src: dynamic.j2
+      dest: /var/www/html/ubuntu.html
+    when: ansible_distribution  == "Ubuntu"
+  
+  - name: copy config to Amazon httpd
+    template:
+      src: httpd.j2
+      dest: /etc/httpd/conf/httpd.conf
+    when: ansible_distribution  == "Amazon"
+    notify: 
+    - Restart HTTPD
+
+  - name: Set Permissive For HTTPD
+    selinux:
+      policy: targeted
+      state: permissive
+    when: ansible_distribution  == "Amazon"     
+    
+  - name: copy config to Ubuntu apache2
+    template:
+      src: ports.j2
+      dest: /etc/apache2/ports.conf
+    when: ansible_distribution  == "Ubuntu"
+    notify: 
+    - Restart APACHE2
+
+...
+   

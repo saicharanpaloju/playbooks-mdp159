@@ -1,0 +1,16 @@
+---    
+  - name: Restart APACHE2
+    service:
+      name: apache2
+      state: restarted
+    when: ansible_distribution  == "Ubuntu"
+  
+  - name: Restart HTTPD
+    service:
+      name: httpd
+      state: restarted
+    when: ansible_distribution  == "Amazon"
+
+
+...
+   

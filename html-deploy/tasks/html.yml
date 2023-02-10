@@ -1,0 +1,14 @@
+
+---
+    - name: Deploy App
+      git:
+        repo: 
+          https://github.com/mubeen507/ecomm.git
+        dest: 
+          /var/www/html
+        clone: yes
+        update: yes
+
+...     
+
+

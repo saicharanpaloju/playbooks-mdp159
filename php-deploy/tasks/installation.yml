@@ -1,0 +1,21 @@
+# "ansible_distribution": "Amazon"
+# "ansible_distribution": "Ubuntu"
+# "ansible_distribution": "Amazon"
+
+---
+  - name: install PHP
+    yum:
+      name: php
+      state: present
+    when: ansible_distribution  == "Amazon" or ansible_distribution == "Amazon"
+    notify: 
+    - Restart HTTPD
+
+  - name: install PHP
+    apt:
+      name: php
+      state: present
+    when: ansible_distribution  == "Ubuntu" or ansible_distribution == "Ubuntu"
+    notify: 
+    - Restart APACHE2
+...        
